@@ -1,0 +1,401 @@
+.container-fluid{
+padding:0px;
+margin:0px;    
+}
+body{
+	padding:0px;
+margin:0px;
+overflow-x:hidden;
+}
+.row{
+padding:0px;
+margin:0px;    
+}
+.brand{
+    background-color:#6ac6b5;
+    
+    min-height:650px;
+    background-image: url(images/bgg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.brandimg{
+   min-height: 300px;
+    padding-top: 30px;
+	 align-content:center;
+}
+.brandimg-overlay{
+    width: 100%;
+    min-height:650px;
+    background-color: rgba(0,0,0,.2);
+}
+.banner-text{
+    
+    color: #FFF;
+   min-height:200px;
+    text-align: center;
+    padding-top: 20px;
+}
+.btn-01{
+   
+    min-height: 100px;
+	 padding-top: 30px;
+}
+.btn{
+    
+    width: 200px;
+    height: 50px;
+    align-content:center;
+	
+}
+.banner-text h1{
+	margin:0px;
+	padding:0px;
+	font-size:60px;
+	
+}
+.needed{
+    background-color:#6ac6b5;
+    min-height:500px;
+}
+.txt-02{
+   text-align: center;
+    color: white;
+    min-height: 100px;
+    margin-bottom: 20px;
+	 background-color: rgba(0,0,0,.1);
+	
+}
+.txt-02 h1{
+    color: #fff;
+    text-align: center;
+    font-size: 40px;
+}
+.b1{
+   color: white;
+    min-height: 125px;
+    text-align: left;
+}
+.b2{
+   color: white;
+    min-height: 125px;
+    
+}
+.img-01{
+    padding-left: 10px;
+    min-height: 500px;
+
+}
+.detail{
+    background-color: #0d615e;
+      min-height: 630px;
+}
+.txt-05{
+  padding-top: 10px;
+    min-height: 200px;
+}
+.txt-04{
+    padding-top:20px;
+    min-height: 200px;
+}
+.txt-03{
+    color:  white;
+    min-height: 100px;
+    text-align: center;
+    padding-top: 10px;
+}
+.b4{
+   
+    min-height: 200px;
+    text-align: center;
+    background-color:rgba(0,0,0,.2);
+    border-right: solid 10px #0d615e;
+    color: white;
+}
+.b4 h1{
+    font-size: 50px;
+    color: white;
+	 padding-top: 10px;
+}
+.b5 h1{
+    font-size: 50px;
+    color: white;
+	 padding-top: 10px;
+}
+.b6 h1{
+    font-size: 50px;
+    color: white;
+	 padding-top: 10px;
+}
+.b5{
+    background-color:rgba(0,0,0,.2);
+    min-height: 200px;
+     text-align: center;
+    border-right: solid 10px #0d615e;
+     color: white;
+}
+.b6{
+    background-color:rgba(0,0,0,.2);
+    min-height: 200px;
+     text-align: center;
+     color: white;
+}
+.products{
+     background-color:#6ac6b5;
+    min-height: 770px;
+}
+.txt-06{
+   color: white;
+    text-align: center;
+    min-height: 100px;
+}  
+
+.txt-07{
+   
+    min-height: 100px;
+}
+
+.img-1{
+    min-height:200px;
+}
+.test{
+    background-color: #0d615e;
+    min-height: 520px;
+}  
+.box-03{
+        min-height: 100px;
+		
+}
+.box-04{
+  align-content:center;
+    min-height: 100px;
+} 
+  .image-hov-text {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+    .image-hov{
+    background-color: #5fbead;
+    padding: 10px;
+	border:#53b4a3 solid 2px;
+}
+.hov-1{
+    height: 200px;
+    background-image: url(images/a.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-color: #f1f1f1;
+}
+.hov-2{
+    height: 200px;
+    background-image: url(images/b.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-color: #f1f1f1;
+}
+.hov-3{
+    height: 200px;
+    background-image: url(images/c.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-color: #f1f1f1;
+}
+.btn-b{
+	width: 100px;
+    height: 50px;
+    align-content:center;
+	background-color:#ccc;
+	background-image: url(images/testimonials/b1.jpg);
+}
+.btn-b:hover{
+	width: 110px;
+    height: 55px;
+    align-content:center;
+	background-color:#ccc;
+	background-image: url(images/testimonials/b1.jpg);
+	
+	
+}
+.btn-a{
+	width: 100px;
+    height: 50px;
+    align-content:center;
+	background-color:#ccc;
+	background-image: url(images/testimonials/b2.jpg);
+}
+.btn-a:hover{
+	width: 110px;
+    height: 55px;
+    align-content:center;
+	background-color:#ccc;
+	background-image: url(images/testimonials/b2.jpg);
+}
+.btn-c:hover{
+	width: 110px;
+    height: 55px;
+    align-content:center;
+	background-color:#ccc;
+	background-image: url(images/testimonials/b3.jpg);
+}
+.btn-c{
+	width: 100px;
+    height: 50px;
+    align-content:center;
+	background-color:#ccc;
+	background-image: url(images/testimonials/b3.jpg);
+}
+.btn-d:hover{
+	width: 110px;
+    height: 55px;
+    align-content:center;
+	background-color:#ccc;
+	background-image: url(images/testimonials/b4.jpg);
+}
+.btn-d{
+	width: 100px;
+    height: 50px;
+    align-content:center;
+	background-color:#ccc;
+	background-image: url(images/testimonials/b4.jpg);
+}
+.t-box{
+	
+	  background-color: rgba(0,0,0,.1);
+	  padding-top:20px;
+}
+.price{
+	min-height:700px;
+	 background-color:#6ac6b5;
+}
+.txt-08{
+   color:#fff;
+    min-height: 100px;
+	text-align:center;
+}
+.tab{
+	text-align:center;
+	color:#cefcf3;
+	align-content:center;
+}
+.btn-n{
+	width:50%;
+	 background-color: #0d615e;
+	 border:none;
+	 align-content:center;
+}
+.btn-n:hover{
+	width:52%;
+	 background-color: #0d615e;
+	 border:none;
+	 align-content:center;
+}
+.spa{
+	color:#0d615e;
+}
+.txt-10{
+    color:#fff;
+    min-height: 80px;
+	text-align:center;
+	
+}
+.box-07{
+    color:#fff;
+    min-height: 300px;
+	align-content:center;
+}
+.team{
+   background-color: #0d615e;
+    min-height: 500px;
+}
+.brx-1{
+    color:#fff;
+    min-height: 150px;
+	text-align:center;
+	
+	
+	
+}
+.pep{
+	 color:#fff;
+   
+	text-align:center;
+}
+.pep H4{
+	 color:#fff;
+	text-align:center;
+	
+}
+.pep H6{
+	
+	 color:#fff;
+	text-align:center;
+	
+}
+.pap H5{
+	 color:#fff;
+	text-align:center;
+}	
+.txt-10 h6{
+	 color:#fff;
+   
+	text-align:center;
+	
+}
+.btn-p{
+	
+	 background-color: #0d615e;
+	 border:none;
+	 align-content:center;
+}
+.btn-k{
+	color:white;
+	width:100%;
+	min-height:50px;
+	 background-color: #0d615e;
+	 border:none;
+	 align-content:center;
+	 border-radius: 2%;
+}
+.contact{
+    background-color:#6ac6b5;
+    min-height: 400px;
+}
+.cont{
+    color:#fff;
+    min-height: 80px;
+	text-align:center;
+	
+}
+.form-control-1{
+	min-height:200px;
+	width:100%;
+	margin:0px;
+	padding:10px;
+	border-radius: 2%;
+	text-align:left;
+}
+.form-control{
+	min-height:50px;
+	width:100%;
+	margin:0px;
+	padding:10px;
+	border-radius: 2%;
+}
+.footer{
+    width: 100%;
+    min-height: 80px;
+   background-color:#0d615e;
+   text-align:center;
+  
+   color:#fff;
+   font-size:14px;
+    line-height:40px;
+}
+.foort{
+	color:#6ac6b5;
+}
+.clod{
+	color:#fff;
+ font-size:20px;
+}

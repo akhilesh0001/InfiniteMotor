@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Infinite Motors</title>
+	<link rel="icon" href="images/log-icn.png" type="images/log-icn" />
+	
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+	
+	<!-- Add jQuery library -->
+	<script type="text/javascript" src="lib/jquery-1.10.1.min.js"></script>
+
+	<!-- Add mousewheel plugin (this is optional) -->
+	<script type="text/javascript" src="lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="source/jquery.fancybox.js?v=2.1.5"></script>
+	<link rel="stylesheet" type="text/css" href="source/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+	<!-- Add Button helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+	<script type="text/javascript" src="source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+
+	<!-- Add Thumbnail helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+	<script type="text/javascript" src="source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+	<!-- Add Media helper (this is optional) -->
+	<script type="text/javascript" src="source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+
+		});
+	</script>
+      
+    </head>
+	    <body>
+	<div class="container-fluid">
+			   <div class="brand">
+				<div class="brandimg-overlay">
+					<div class="row">
+						 <div class="col-md-12">
+							 <div class="col-md-4  col-md-offset-4 ">
+									 <div  class="brandimg">
+									 
+										 <!--  <img class="img-responsive" src="images/logo-02.png" alt="logo" />   -->
+										  <img src="images/logo-02.png" alt="logo" class="img-responsive center-block" />
+									 </div>
+								 </div>
+						 </div>
+							
+						<div class="col-md-12 ">
+							<div class="row banner-text">
+								<h1 class="para"> Never bored on a Hoverboard.</h1>
+							</div>
+                     </div>
+                      <div class="col-md-2  col-md-offset-5 btn-01">
+                         <button class="btn btn-md btn-success"> GET STARTED</button>
+                     </div> 
+                 </div>
+				</div>
+				</div>
+				 <div class="needed">
+					  <div class="row">
+						<div class="col-md-12"> 
+							<div class="txt-02">
+						<b> <h1  class="para"> EVERYTHING YOU NEED</h1></b>
+								our hoverboard features which you check first are down here.
+						   </div>
+						</div>
+						<div class="col-md-3  col-md-offset-1 ">
+							<div class="col-md-12 b2">
+								<H3 class="para">DC BRUSHLESS MOTOR</H3>
+							30MM DUAL ALARM<BR/>
+								LED TAIL LIGHTS
+							</div>
+							<div class="col-md-12 b2">
+						  <H3  class="para"> LED STATUS SCREEN</H3>
+								SPEED-<br/>
+								TEMPERATURE-<br/>
+								BATTERY LIFE-<br/>
+								
+							</div>
+							<div class="col-md-12 b2">
+					   <H3  class="para">EASY CARRY HANDLE</H3> 
+						LOW SPEED AND<BR/> POWER WARNING
+												
+							</div>
+                    
+						</div>
+						         <div class="col-md-2 col-md-offset-1 img-01 ">
+									 <img class="img-responsive" src="images/product.png" alt="product" center-block /> 
+								</div>
+								
+								<div class="col-md-3 col-md-offset-1 ">
+											<div class="col-md-12 b1">
+										<H3  class="para">BLUETOOTH SPEAKER</H3>
+											TO STREAM MUSIC AND<BR/>
+													MAPS
+										</div>
+										<div class="col-md-12 b1 ">
+												   
+										   <H3  class="para"> REPLACEABLE  LI-ION BATTERY</H3>
+										-4.4AH<br/>
+									   -18650 HIGH EFFICIENCY<br/>
+									   
+										-2 HOUR CHARGE TIME
+									</div>
+									   <div class="col-md-12 b1">
+										<H3  class="para">LED HEADLIGHT</H3>
+										WITH LIGHT SENSING<BR/>
+										TECHNOLOGY
+										</div>
+								</div>
+					  
+					  </div>
+				 </div>
+				 
+				  <div class="detail">
+					 <div class="row">
+					 
+						<div class="col-md-10  col-md-offset-1 txt-03">
+                         <H1  class="para">EVERY DETAIL INDETAIL</H1>
+                         why our brand is special when compared with others
+                     </div>
+                     <div class="col-md-10 col-md-offset-1 txt-04">
+                        <div class="col-md-4 b4">
+                          <h1> <span class="glyphicon glyphicon-heart"></span></h1>
+                            WE ARE WORLDS FAVOURITE ELECTRONIC MOTOR WORKS 
+                         </div> 
+                          <div class="col-md-4 b5">
+                              <h1> <i class="fa fa-bluetooth" aria-hidden="true"></i> </h1>
+                              WE ARE THE PEOPLE WHO INTROUCED BLUETOOTH INTO HOVERBOARDS
+                         </div> 
+                          <div class="col-md-4 b6">
+                                <h1><span class="glyphicon glyphicon-tag"> </span></h1>
+                              WORLD CLASS COLLECTIONS OF HOVERBOARDS ARE DESIGNED BY US 
+                         </div> 
+                     </div>
+                     <div class="col-md-10 col-md-offset-1 txt-05">
+                         <div class="col-md-4 b4">
+                              <h1> <span class="glyphicon glyphicon-user"></span></h1>
+                             THE LATEST USER DISPLAY INTEFACE INVENTED BY INFINITE MOTORS
+                         </div> 
+                          <div class="col-md-4 b5">
+                              <h1> <span class="glyphicon glyphicon-briefcase"> </span> </h1>
+                              COMPACT MEAN OF TRANSPORTATION
+                         </div> 
+                          <div class="col-md-4 b6">
+                              <h1>  <i class="fa fa-rss" aria-hidden="true"></i></h1>
+                              CONECT YOUR HOTSPOT FOR ROOTS AND MAPS TO
+                              MOVE ACCORDINGLY
+                         </div> 
+                     </div>
+					 
+					 </div>
+				 </div>
+				 <div class="products">
+                 <div class="row">
+                    <div class="col-md-12 txt-06">
+                        <H1  class="para"> OUR PRODUCTS</H1>
+                        BEST SELLING HOVERBOARDS OF INFINTE MOTORS
+                     </div>
+                      <div class="col-md-12 txt-07">
+                           <div class="row">
+                                <div class="col-md-3 img-1">
+                                    <a class="fancybox" data-fancybox-group="gallery" href="images/gallery/1.jpg" title="hov1"><img class="img-responsive img-thumbnail" src="images/gallery/1.jpg" alt="hov1" /></a>
+                                </div>
+
+                                <div class="col-md-3 img-1">
+                                    <a class="fancybox" data-fancybox-group="gallery" href="images/gallery/2.jpg" title="hov2"><img class="img-responsive img-thumbnail" src="images/gallery/2.jpg" alt="hov2" /></a>
+                                </div>
+
+                                <div class="col-md-3 img-1">
+                                    <a class="fancybox" data-fancybox-group="gallery" href="images/gallery/3.jpg" title="hov3"><img class="img-responsive img-thumbnail" src="images/gallery/3.jpg" alt="hov3" /></a>
+                                </div>
+
+                                <div class="col-md-3 img-1">
+                                    <a class="fancybox" data-fancybox-group="gallery" href="images/gallery/4.jpg" title="hov4"><img class="img-responsive img-thumbnail" src="images/gallery/4.jpg" alt="hov4" /></a>
+                                </div>
+								
+								  <div class="col-md-3 img-1">
+                                    <a class="fancybox" data-fancybox-group="gallery" href="images/gallery/5.jpg" title="hov5"><img class="img-responsive img-thumbnail" src="images/gallery/5.jpg" alt="hov5" /></a>
+                                </div>
+
+                                <div class="col-md-3 img-1">
+                                    <a class="fancybox" data-fancybox-group="gallery" href="images/gallery/6.jpg" title="hov6"><img class="img-responsive img-thumbnail" src="images/gallery/6.jpg" alt="hov6" /></a>
+                                </div>
+
+                                <div class="col-md-3 img-1">
+                                    <a class="fancybox" data-fancybox-group="gallery" href="images/gallery/7.jpg" title="hov7"><img class="img-responsive img-thumbnail" src="images/gallery/7.jpg" alt="hov7" /></a>
+                                </div>
+
+                                <div class="col-md-3 img-1">
+                                    <a class="fancybox" data-fancybox-group="gallery" href="images/gallery/8.jpg" title="hov8"><img class="img-responsive img-thumbnail" src="images/gallery/8.jpg" alt="hov8" /></a>
+                                </div>
+								 <div class="col-md-4 col-md-offset-4 img-1">
+                                    <a class="fancybox" data-fancybox-group="gallery" href="images/gallery/9gi.gif" title="inside"><img class="img-responsive img-thumbnail" src="images/gallery/9gi.gif" alt="hov9" /></a>
+                                </div>
+                            </div>
+                          
+                     </div>
+                </div>
+				</div>
+					 <div class="test">
+						<div class="row">
+							<div class="col-md-4 col-md-offset-4 txt-06">
+								<H1  class="para"> TESTIMONIALS</H1>
+							</div>
+								<div class="col-md-6 col-md-offset-3 box-03">
+									<div class="col-md-12 t-box">
+									<div class="col-md-2 box-04">
+									 <img class="img-responsive"  src="images/testimonials/01.jpg" alt="people" /> 
+									</div>									
+									 <div class="col-md-2 box-04">
+									  <img class="img-responsive" src="images/testimonials/03.jpg" alt="people" /> 
+									 </div>
+									 <div class="col-md-2 box-04">
+									  <img class="img-responsive" src="images/testimonials/04.jpg" alt="people" /> 
+									 </div>
+									  <div class="col-md-2 box-04">
+									  <img class="img-responsive" src="images/testimonials/02.jpg" alt="people" /> 
+									 </div>
+									 <div class="col-md-2 box-04">
+									  <img class="img-responsive" src="images/testimonials/05.jpg" alt="people" /> 
+									 </div>
+									 <div class="col-md-2 box-04">
+									  <img class="img-responsive" src="images/testimonials/06.jpg" alt="people" /> 
+									 </div>
+									 </div>
+									 <div class="col-md-8 col-md-offset-2 txt-06">
+									our products are tested by some of the famous electronic and sports medias they test,try and aprove the product.<br/><br/>
+									<h4 class="para"><b><u>Click here to know the review:</u></b></h4>
+									</div>
+									<div class="col-md-12">
+										<div class="col-md-3">
+											<button class="btn-b"> </button>
+										</div>
+										<div class="col-md-3">
+											<button class="btn-c"> </button>
+										</div>
+										<div class="col-md-3">
+											<button class="btn-d"> </button>
+										</div>
+										<div class="col-md-3">
+											<button class="btn-a"> </button>
+										</div>
+									</div>
+								</div>
+								
+							
+						</div>
+					 
+					 </div>
+					 
+				<div class="price">
+					<div class="row">
+						<div class="col-md-12 txt-08">
+							<H1 class="para">PRICING TABLE</H1>
+						</div>
+						<div class="col-md-12 tab" >
+							<div class="col-md-4">
+								<div class="image-hov">
+									<div class="hov-1">
+									</div>
+									<div class="image-hov-text">
+										<h4>Six-inch hover track</h4>
+										<p>INR 12,000</p>
+										<table class="table">
+											<thead>
+												<tr>
+													<td colspan="2"><strong>Specification</strong></td>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><span class="spa"> Model;no</span></td>
+													<td>*1456</td>
+												</tr>
+												<tr>
+													<td><span class="spa"> Style</span></td>
+													<td>segway</td>
+												</tr>
+												<tr>
+													<td><span class="spa">Board Weight(Kg)</span></td>
+													<td>2.20462 pounds</td>
+												</tr>
+												<tr>
+													<td><span class="spa">balance(%)</span></td>
+													<td>90%</td>
+												</tr>
+												<tr>
+												
+											   <button class="btn-n btn-sm btn-success">BUY NOW</button>
+												</tr>
+													</tbody>
+												</table>
+											</div>
+								</div>
+							</div>
+							
+							<div class="col-md-4">
+								<div class="image-hov">
+									<div class="hov-2">
+									</div>
+									<div class="image-hov-text">
+										<h4>Single wheel swagatron board</h4>
+										<p>INR 16,000</p>
+										<table class="table">
+											<thead>
+												<tr>
+													<td colspan="2"><strong>Specification</strong></td>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><span class="spa"> Model;no</span></td>
+													<td>*1463</td>
+												</tr>
+												<tr>
+													<td><span class="spa"> Style</span></td>
+													<td>self balance</td>
+												</tr>
+												<tr>
+													<td><span class="spa">Board Weight(Kg)</span></td>
+													<td>3.30693 pounds</td>
+												</tr>
+												<tr>
+													<td><span class="spa">balance(%)</span></td>
+													<td>80%</td>
+												</tr>
+												<tr>
+											
+											   <button class="btn-n btn-sm btn-success">BUY NOW</button>
+												</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+							</div>
+							
+							<div class="col-md-4">
+								<div class="image-hov">
+									<div class="hov-3">
+									</div>
+									<div class="image-hov-text">
+										<h4>Single wheel side slit board</h4>
+										<p>INR 24,000</p>
+										<table class="table">
+											<thead>
+												<tr>
+													<td colspan="2"><strong>Specification</strong></td>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><span class="spa"> Model;no</span></td>
+													<td>*1476</td>
+												</tr>
+												<tr>
+													<td><span class="spa"> Style</span></td>
+													<td>auto balance</td>
+												</tr>
+												<tr>
+													<td><span class="spa">Board Weight(Kg)</span></td>
+													<td>4.40925 pounds</td>
+												</tr>
+												<tr>
+													<td><span class="spa">balance(%)</span></td>
+													<td>100%</td>
+												</tr>
+												<tr>
+													
+											   <button class="btn-n btn-sm btn-success">BUY NOW</button>
+												</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				 
+			
+			<div class="team">
+        
+            <div class="row">
+				
+                  <div class="txt-10"> <b><h1> OUR TEAM</h1></b>
+				 <H6> These are the people who made the dream of ELECTRIC-BOARD come true .</H6>
+				 </div>
+				  <div class="col-md-10 col-md-offset-1">
+             <div class="col-md-4">
+				
+					<div class="pep">					
+						<img src="images/pep1.jpg" alt="fam" class="img-responsive center-block img-circle" />
+						 <p><b><h4>HUGH JACKMAN</h4></b></p>
+						 <p><H6>FOUNDER,MANAGING DIRECTOR</H6></p>
+						<p><p><h5>"It all starts with the dreams in our minds and passion in our hearts."</h5></p></p>
+						<p><button class="btn-p"><h3><i class="fa fa-facebook-square" aria-hidden="true"></i></h3></button>
+						<button class="btn-p"><h3><i class="fa fa-twitter-square" aria-hidden="true"></i></h3></button>
+						<button class="btn-p"><h3><i class="fa fa-google-plus-square" aria-hidden="true"></i></h3></button></p>
+					</div>
+			</div>
+			<div class="col-md-4">
+				
+					<div class="pep">
+						<img src="images/pep2.jpg" alt="fam1" class="img-responsive center-block img-circle" />
+						<p><b><H4>KEVIN HART</H4></b></p>
+						<p><H6> CO-FOUNDER,CHIEF ENGINEER</H6></p>
+						<p><h5>"Imagine with all your mind Believe with all your heart Achieve with all your might."</h5></p>
+						<p><button class="btn-p"><h3><i class="fa fa-facebook-square" aria-hidden="true"></i></h3></button>
+						<button class="btn-p"><h3><i class="fa fa-twitter-square" aria-hidden="true"></i></h3></button>
+						<button class="btn-p"><h3><i class="fa fa-google-plus-square" aria-hidden="true"></i></h3></button></p>
+					</div>
+			</div>
+			<div class="col-md-4">
+				
+					<div class="pep">
+						<img src="images/pep3.jpg" alt="fam2" class="img-responsive center-block img-circle" />
+						<p><b><H4> STEANIE SCOTT</H4></b></p>
+						<p><H6> CO-FOUNDER,C.E.O</H6></p>
+						<p><h5>"The best achievement in life is doing something you think you can't do."</h5></p>
+						<p><button class="btn-p"><h3><i class="fa fa-facebook-square" aria-hidden="true"></i></h3></button>
+						<button class="btn-p"><h3><i class="fa fa-twitter-square" aria-hidden="true"></i></h3></button>
+						<button class="btn-p"><h3><i class="fa fa-google-plus-square" aria-hidden="true"></i></h3></button></p>
+					</div>
+			</div>
+                
+				</div>
+           
+			</div>
+		</div>
+		
+		<div class="contact">
+		<div class="row">
+			<div class="cont"> <b><h1>CONTACT</h1></b>
+				<p class="para"> Thank you for your interest in Infinite motor sevices. Please provide the following information about you to help us serve you better.You will receive a response within 48 hours.</p>
+				 </div>
+				  <div class="col-md-4  col-md-offset-1">
+					  <div class="form-group">
+                    <label for="message"></label>
+                    <textarea  class="form-control-1" placeholder="Message"></textarea>
+					
+                </div>
+					   </div>
+				
+                    <div class="col-md-6">
+					
+                    <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="firstname"></label>                                                                                                                                   
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                    </div>
+					</div>
+                    <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="email"></label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                    </div>
+					</div>
+					
+						<div class="col-md-8 ">
+						<select class="form-control" name="country" placeholder="Country">
+						<option>Country</option>
+						<option>Canberra</option>
+						<option>Palau</option>
+						<option>Nauru</option>
+						<option>Tonga</option>
+						<option>Samoa</option>
+						</select> 
+						</div>	
+						<div class="col-md-3">
+							<button class="btn-k ">Submit</button>
+						</div>	
+                    </div>
+		
+		</div>
+		</div>
+		<div class="footer">   
+                <div class="col-md-12">
+                   Copyright &COPY; 2017 <span class="foort">INFINITE MOTORS.com</span> All rights are reserved<br/>
+				
+					<div class="clod"><i class="fa fa-facebook-square" aria-hidden="true"></i>
+					<i class="fa fa-twitter-square" aria-hidden="true"></i>
+					<i class="fa fa-google-plus-square" aria-hidden="true"></i></div>
+					
+				 </div>
+					
+		</div>
+				
+	</div>
+			   
+		  
+		
+		
+		</body>
+		</html>
